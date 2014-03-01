@@ -1,5 +1,5 @@
 ﻿macro ?. {
-	rule infix { $obj (.) ... | $rest } => {
+	rule infix { $obj:expr (.) ... | $rest } => {
 		(typeof $obj (.) ... === 'undefined' ? undefined : $obj (.) .... $rest)
 	}
 }
