@@ -13,7 +13,7 @@ macro namespace {
 	
 	rule {
 		$nname:expr {
-			$(var $vname = $vval;) ...
+			$(var $vname = $vval:expr;) ...
 		}
 	} => {
 		if (typeof $nname === 'undefined') {
@@ -25,7 +25,7 @@ macro namespace {
 	
 	rule {
 		$nname:expr {
-			$(var $vname = $vval;) ...
+			$(var $vname = $vval:expr;) ...
 			$(function $fname $fparams $fbody) ...
 		}
 	} => {
