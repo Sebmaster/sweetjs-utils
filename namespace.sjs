@@ -4,6 +4,10 @@ macro namespace {
 			$(function $fname $fparams $fbody) ...
 		}
 	} => {
+		if (typeof $nname === 'undefined') {
+			$nname = {};
+		}
+		
 		$($nname.$fname = function $fparams $fbody;) ...
 	}
 	
@@ -12,6 +16,10 @@ macro namespace {
 			$(namespace $newname $newbody) ...
 		}
 	} => {
+		if (typeof $nname === 'undefined') {
+			$nname = {};
+		}
+		
 		$(namespace $nname.$newname $newbody) ...
 	}
 }
