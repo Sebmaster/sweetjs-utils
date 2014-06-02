@@ -1,12 +1,12 @@
-Test.x = function (a) {
-	console.log('a');
+Test.Other.x = function (a) {
+	console.log(a);
 };
-Test.y = function (a) {
+Test.Other.y = function (a) {
 	console.log('b');
 };
-New.Other.x = function (a) {
+New.Other.Third.x = function (a) {
 	console.log('c');
 };
-New.Other.y = function (a) {
+New.Other.Third.y = function (a) {
 	console.log('d');
 };

@@ -8,7 +8,7 @@ macro namespace {
 	}
 	
 	rule {
-		$nname {
+		$nname:expr {
 			$(namespace $newname $newbody) ...
 		}
 	} => {
@@ -16,9 +16,9 @@ macro namespace {
 	}
 }
 
-namespace Test {
+namespace Test.Other {
 	function x(a) {
-		console.log('a');
+		console.log(a);
 	}
 	
 	function y(a) {
@@ -28,12 +28,14 @@ namespace Test {
 
 namespace New {
 	namespace Other {
-		function x(a) {
-			console.log('c');
-		}
+		namespace Third {
+			function x(a) {
+				console.log('c');
+			}
 	
-		function y(a) {
-			console.log('d');
+			function y(a) {
+				console.log('d');
+			}
 		}
 	}
 }
