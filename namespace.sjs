@@ -13,6 +13,32 @@ macro namespace {
 	
 	rule {
 		$nname:expr {
+			$(var $vname = $vval;) ...
+		}
+	} => {
+		if (typeof $nname === 'undefined') {
+			$nname = {};
+		}
+		
+		$($nname.$vname = $vval;) ...
+	}
+	
+	rule {
+		$nname:expr {
+			$(var $vname = $vval;) ...
+			$(function $fname $fparams $fbody) ...
+		}
+	} => {
+		if (typeof $nname === 'undefined') {
+			$nname = {};
+		}
+		
+		$($nname.$vname = $vval;) ...
+		$($nname.$fname = function $fparams $fbody;) ...
+	}
+	
+	rule {
+		$nname:expr {
 			$(namespace $newname $newbody) ...
 		}
 	} => {
@@ -24,7 +50,24 @@ macro namespace {
 	}
 }
 
-namespace Test.Other {
+namespace Test.A {
+	var x = null;
+}
+
+namespace Test.B {
+	function x(a) {
+		console.log(a);
+	}
+	
+	function y(a) {
+		console.log('b');
+	}
+}
+
+namespace Test.AB {
+	var x = null;
+	var y = null;
+	
 	function x(a) {
 		console.log(a);
 	}

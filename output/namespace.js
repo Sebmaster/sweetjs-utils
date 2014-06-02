@@ -1,10 +1,25 @@
-if (typeof Test.Other === 'undefined') {
-	Test.Other = {};
+if (typeof Test.A === 'undefined') {
+	Test.A = {};
 }
-Test.Other.x = function (a) {
+Test.A.x = null;
+if (typeof Test.B === 'undefined') {
+	Test.B = {};
+}
+Test.B.x = function (a) {
 	console.log(a);
 };
-Test.Other.y = function (a) {
+Test.B.y = function (a) {
+	console.log('b');
+};
+if (typeof Test.AB === 'undefined') {
+	Test.AB = {};
+}
+Test.AB.x = null;
+Test.AB.y = null;
+Test.AB.x = function (a) {
+	console.log(a);
+};
+Test.AB.y = function (a) {
 	console.log('b');
 };
 if (typeof New === 'undefined') {
